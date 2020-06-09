@@ -17,11 +17,18 @@ import android.widget.TextView;
 import android.widget.TableRow.LayoutParams;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
+
 public class Main2Activity extends AppCompatActivity {
 
 
     TextView txtHeading;
     String name;
+    private AdView  mAdviewAd;
 
     String mas[],fem[],neu[],plr[],row[];
 
@@ -29,6 +36,11 @@ public class Main2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+        mAdviewAd = (AdView)findViewById(R.id.adView);
+        initializeBannerAd("ca-app-pub-6189499490928275~3401756754");
+        loadBannerAd("ca-app-pub-6189499490928275/4436750216");
+
 
         Bundle b;
         b = getIntent().getExtras();
@@ -111,36 +123,6 @@ public class Main2Activity extends AppCompatActivity {
         tv.setBackgroundColor(bgColor);
         tv.setLayoutParams(getLayoutParams());
 
-        tv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                try {
-                    Intent intent = new Intent();
-                    intent.setAction(Intent.ACTION_SEND);
-                    intent.putExtra(Intent.EXTRA_TEXT, tv.getText());
-                    intent.putExtra("key_text_input", tv.getText());
-                    intent.putExtra("key_text_output", "");
-                    intent.putExtra("key_language_from", "du");
-                    intent.putExtra("key_language_to", "en");
-                    intent.putExtra("key_suggest_translation", "");
-                    intent.putExtra("key_from_floating_window", false);
-                    intent.setComponent(new ComponentName(
-                            "com.google.android.apps.translate",
-                            //Change is here
-                            //"com.google.android.apps.translate.HomeActivity"));
-                            "com.google.android.apps.translate.TranslateActivity"));
-                    startActivity(intent);
-                } catch (ActivityNotFoundException e) {
-                    // TODO Auto-generated catch block
-                    Toast.makeText(Main2Activity.this, "Sorry, No Google Translation Installed",
-                            Toast.LENGTH_SHORT).show();
-                }
-
-                Log.d("MOH->","pressed : "+tv.getText());
-            }
-        });
-
         return tv;
     }
 
@@ -190,6 +172,12 @@ public class Main2Activity extends AppCompatActivity {
             tr.addView(getTextView(i + 5, plr[i], Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this, R.color.colorAccent)));
             tl.addView(tr, getTblLayoutParams());
         }
+    }
+    public void initializeBannerAd(String s){
+        MobileAds.initialize(this, s);
+    }
+    public void loadBannerAd(String s){
+        mAdviewAd.loadAd(new AdRequest.Builder().build());
     }
 
 }

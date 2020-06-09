@@ -12,6 +12,17 @@
     tools:context="com.example.hp.germanarticles.Article">
     <TextView
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/headingText"
+        android:text="Heading"
+        android:textColor="#fafafa"
+        android:textSize="40dp"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/headingText"
         android:id="@+id/txtview"
         android:textColor="#fafafa"
         android:layout_height="wrap_content"
@@ -25,5 +36,15 @@
 
         android:layout_height="wrap_content" >
     </ListView>
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-6189499490928275/4436750216">
+    </com.google.android.gms.ads.AdView>
 
 </RelativeLayout>

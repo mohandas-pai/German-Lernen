@@ -30,6 +30,10 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
 public class ModalVerb extends AppCompatActivity {
 
     /**
@@ -42,6 +46,7 @@ public class ModalVerb extends AppCompatActivity {
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
     static TableLayout tl;
+    private static AdView mAdviewAd;
     /**
      *
      * The {@link ViewPager} that will host the section contents.
@@ -100,6 +105,9 @@ public class ModalVerb extends AppCompatActivity {
                                  Bundle savedInstanceState) {
 
             View rootView = inflater.inflate(R.layout.fragment_modal_verb, container, false);
+            mAdviewAd = (AdView)rootView.findViewById(R.id.adView);
+            MobileAds.initialize(this.getContext(), "ca-app-pub-6189499490928275~3401756754");
+            loadBannerAd("ca-app-pub-3940256099942544/6300978111");
             tl = (TableLayout) rootView.findViewById(R.id.displayLinear);
             TextView textView = (TextView) rootView.findViewById(R.id.headingText);
             if(getArguments().getInt(ARG_SECTION_NUMBER) == 1){
@@ -138,35 +146,6 @@ public class ModalVerb extends AppCompatActivity {
             tv.setTypeface(Typeface.DEFAULT, typeface);
             tv.setBackgroundColor(bgColor);
             tv.setLayoutParams(getLayoutParams());
-            tv.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    try {
-                        Intent intent = new Intent();
-                        intent.setAction(Intent.ACTION_SEND);
-                        intent.putExtra(Intent.EXTRA_TEXT, tv.getText());
-                        intent.putExtra("key_text_input", tv.getText());
-                        intent.putExtra("key_text_output", "");
-                        intent.putExtra("key_language_from", "du");
-                        intent.putExtra("key_language_to", "en");
-                        intent.putExtra("key_suggest_translation", "");
-                        intent.putExtra("key_from_floating_window", false);
-                        intent.setComponent(new ComponentName(
-                                "com.google.android.apps.translate",
-                                //Change is here
-                                //"com.google.android.apps.translate.HomeActivity"));
-                                "com.google.android.apps.translate.TranslateActivity"));
-                        startActivity(intent);
-                    } catch (ActivityNotFoundException e) {
-                        // TODO Auto-generated catch block
-                        Toast.makeText(getContext().getApplicationContext(), "Sorry, No Google Translation Installed",
-                                Toast.LENGTH_SHORT).show();
-                    }
-
-                    Log.d("MOH->","pressed : "+tv.getText());
-                }
-            });
             return tv;
         }
 
@@ -262,6 +241,10 @@ public class ModalVerb extends AppCompatActivity {
             }
             return null;
         }
+    }
+
+    public static void loadBannerAd(String s){
+        mAdviewAd.loadAd(new AdRequest.Builder().build());
     }
 
 }

@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
@@ -26,17 +27,89 @@ public class MainActivity extends AppCompatActivity {
     private static ArrayList<DataModel> data;
     static View.OnClickListener myOnClickListener;
     private InterstitialAd mInterstitialAd;
+    private String selectedName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        myOnClickListener = new MyOnClickListener(this);
+
         mInterstitialAd = new InterstitialAd(this);
         initializeInterstitialAd("ca-app-pub-6189499490928275~3401756754");
-        loadInterstitialAd("ca-app-pub-3940256099942544/2247696110");
+        loadInterstitialAd("ca-app-pub-6189499490928275/2212383848");
 
-        myOnClickListener = new MyOnClickListener(this);
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                // Code to be executed when an ad finishes loading.
+            }
+
+            @Override
+            public void onAdFailedToLoad(int errorCode) {
+                // Code to be executed when an ad request fails.
+            }
+
+            @Override
+            public void onAdOpened() {
+                // Code to be executed when the ad is displayed.
+            }
+
+            @Override
+            public void onAdClicked() {
+                // Code to be executed when the user clicks on an ad.
+                mInterstitialAd.getAdListener().onAdClosed();
+            }
+
+            @Override
+            public void onAdLeftApplication() {
+                // Code to be executed when the user has left the app.
+            }
+
+            @Override
+            public void onAdClosed() {
+                // Code to be executed when the interstitial ad is closed.
+                mInterstitialAd.loadAd(new AdRequest.Builder().build());
+                if (selectedName.equalsIgnoreCase("Possessivpronomen")) {
+
+                    Intent intent = new Intent(getApplicationContext(), Possesive.class);
+                    startActivity(intent);
+
+                } else if (selectedName.equalsIgnoreCase("die") || selectedName.equalsIgnoreCase("der") || selectedName.equalsIgnoreCase("das")) {
+
+                    Intent intent = new Intent(getApplicationContext(), Article.class);
+                    intent.putExtra("name", selectedName);
+                    startActivity(intent);
+
+                } else if (selectedName.equalsIgnoreCase("Modale Verben")) {
+
+                    Intent intent = new Intent(getApplicationContext(), ModalVerb.class);
+                    startActivity(intent);
+                } else if (selectedName.equalsIgnoreCase("Präposition")) {
+
+                    Intent intent = new Intent(getApplicationContext(), Prepositions.class);
+                    startActivity(intent);
+
+                } else if (selectedName.equalsIgnoreCase("Others/Rules")) {
+
+                    Intent intent = new Intent(getApplicationContext(), Rules.class);
+                    startActivity(intent);
+
+                } else if (selectedName.equalsIgnoreCase("Adjektivendungen")) {
+
+                    Intent intent = new Intent(getApplicationContext(), AdjDecl.class);
+                    startActivity(intent);
+
+                } else {
+
+                    Intent intent = new Intent(getApplicationContext(), Main2Activity.class);
+                    intent.putExtra("name", selectedName);
+                    startActivity(intent);
+
+            }
+            }
+        });
 
         recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
         recyclerView.setHasFixedSize(true);
@@ -80,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
                     = recyclerView.findViewHolderForPosition(selectedItemPosition);
             TextView textViewName
                     = (TextView) viewHolder.itemView.findViewById(R.id.textViewGerman);
-            String selectedName = (String) textViewName.getText();
+            selectedName = (String) textViewName.getText();
             int selectedItemId = -1;
             for (int i = 0; i < MyData.germanArray.length; i++) {
                 if (selectedName.equals(MyData.germanArray[i])) {
@@ -89,34 +162,62 @@ public class MainActivity extends AppCompatActivity {
             }
 
             if(selectedName.equalsIgnoreCase("Possessivpronomen")){
-                Intent intent = new Intent(context, Possesive.class);
-                startActivity(intent);
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+                } else {
+                    Intent intent = new Intent(context, Possesive.class);
+                    startActivity(intent);
+                }
             }
             else if(selectedName.equalsIgnoreCase("die") || selectedName.equalsIgnoreCase("der") || selectedName.equalsIgnoreCase("das") ){
-                Intent intent = new Intent(context, Article.class);
-                intent.putExtra("name", selectedName);
-                startActivity(intent);
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+                } else {
+                    Intent intent = new Intent(context, Article.class);
+                    intent.putExtra("name", selectedName);
+                    startActivity(intent);
+                }
             }
             else if(selectedName.equalsIgnoreCase("Modale Verben")){
-                Intent intent = new Intent(context, ModalVerb.class);
-                startActivity(intent);
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+                } else {
+                    Intent intent = new Intent(context, ModalVerb.class);
+                    startActivity(intent);
+                }
             }
             else if(selectedName.equalsIgnoreCase("Präposition")){
-                Intent intent = new Intent(context, Prepositions.class);
-                startActivity(intent);
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+                } else {
+                    Intent intent = new Intent(context, Prepositions.class);
+                    startActivity(intent);
+                }
             }
             else if(selectedName.equalsIgnoreCase("Others/Rules")){
-                Intent intent = new Intent(context, Rules.class);
-                startActivity(intent);
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+                } else {
+                    Intent intent = new Intent(context, Rules.class);
+                    startActivity(intent);
+                }
             }
             else if(selectedName.equalsIgnoreCase("Adjektivendungen")){
-                Intent intent = new Intent(context, AdjDecl.class);
-                startActivity(intent);
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+                } else {
+                    Intent intent = new Intent(context, AdjDecl.class);
+                    startActivity(intent);
+                }
             }
             else {
-                Intent intent = new Intent(context, Main2Activity.class);
-                intent.putExtra("name", selectedName);
-                startActivity(intent);
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+                } else {
+                    Intent intent = new Intent(context, Main2Activity.class);
+                    intent.putExtra("name", selectedName);
+                    startActivity(intent);
+                }
             }
         }
     }
@@ -127,5 +228,4 @@ public class MainActivity extends AppCompatActivity {
         mInterstitialAd.setAdUnitId(s);
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
     }
-
 }
