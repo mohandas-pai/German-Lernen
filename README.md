@@ -22,7 +22,8 @@ If you have found any mistakes, wrong information, or want me to add more datas 
 The app contains important tables and grammar related to A1 and A2 level of Deutsch.
 
 Any help on the following issues would be helpful, will also try and give a shout-out in the app.
-- A new logo
+- A new logo --DONE-- Thanks to https://github.com/arsundram
 - A splash screen
+- Updated Readme
 
 The app link - https://play.google.com/store/apps/details?id=moh.theamazingappsco.germanlernen
