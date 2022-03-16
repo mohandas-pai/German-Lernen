@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/German-Lernen.iml" filepath="$PROJECT_DIR$/.idea/modules/German-Lernen.iml" group="German-Lernen" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/German-Lernen-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/German-Lernen-app.iml" group="German-Lernen/app" />
-      <module fileurl="file://$PROJECT_DIR$/GermanArticles.iml" filepath="$PROJECT_DIR$/GermanArticles.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/GermanLernen.iml" filepath="$PROJECT_DIR$/.idea/modules/GermanLernen.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/GermanLernen.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/GermanLernen.app.iml" />
     </modules>
   </component>
 </project>
