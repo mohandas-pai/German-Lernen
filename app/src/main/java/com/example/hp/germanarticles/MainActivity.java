@@ -96,10 +96,9 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
 
             }
-            else if(selectedName.equalsIgnoreCase("die") || selectedName.equalsIgnoreCase("der") || selectedName.equalsIgnoreCase("das") ){
+            else if(selectedName.equalsIgnoreCase("Article Helper")){
 
-                    Intent intent = new Intent(context, Article.class);
-                    intent.putExtra("name", selectedName);
+                    Intent intent = new Intent(context, ArticleHelper.class);
                     startActivity(intent);
 
             }
@@ -129,6 +128,11 @@ public class MainActivity extends AppCompatActivity {
             }else if (selectedName.equalsIgnoreCase("Präteritum")) {
 
                 Intent intent = new Intent(getApplicationContext(), prateritum.class);
+                startActivity(intent);
+
+            }else if (selectedName.equalsIgnoreCase("Article Table")) {
+
+                Intent intent = new Intent(getApplicationContext(), ArticleTables.class);
                 startActivity(intent);
 
             }else {

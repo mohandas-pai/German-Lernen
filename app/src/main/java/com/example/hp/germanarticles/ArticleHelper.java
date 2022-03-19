@@ -13,13 +13,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class Possesive extends AppCompatActivity {
+public class ArticleHelper extends AppCompatActivity {
 
-    private static CustomAdapter2 adapter;
+    private static CustomAdapter3 adapter;
     private RecyclerView.LayoutManager layoutManager;
     private static RecyclerView recyclerView;
     private static ArrayList<DataModel> data;
@@ -28,10 +27,11 @@ public class Possesive extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_possesive);
-        myOnClickListener = new Possesive.MyOnClickListener1(this);
+        setContentView(R.layout.activity_article_helper);
+        Log.d("Test","Came to  here activity_article_helper");
+        myOnClickListener = new ArticleHelper.MyOnClickListener2(this);
 
-        recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view2);
+        recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view3);
         recyclerView.setHasFixedSize(true);
 
         layoutManager = new LinearLayoutManager(this);
@@ -39,33 +39,33 @@ public class Possesive extends AppCompatActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         data = new ArrayList<DataModel>();
-        for (int i = 0; i < MyData.pgermanArray.length; i++) {
+        for (int i = 0; i < MyData.articleArrayG.length; i++) {
             data.add(new DataModel(
-                    MyData.pgermanArray[i],
-                    MyData.penglishArray[i]
+                    MyData.articleArrayG[i],
+                    MyData.articleArrayE[i]
             ));
         }
-
-        adapter = new CustomAdapter2(data);
+        adapter = new CustomAdapter3(data);
         recyclerView.setAdapter(adapter);
     }
 
-
-    private class MyOnClickListener1 implements View.OnClickListener {
+    private class MyOnClickListener2 implements View.OnClickListener {
 
         private final Context context;
 
-        private MyOnClickListener1(Context context) {
+
+        private MyOnClickListener2(Context context) {
             this.context = context;
         }
 
         @Override
         public void onClick(View v) {
+            Log.d("Test","Came to  here MyOnClickListener2");
             removeItem1(v);
         }
 
         private void removeItem1(View v) {
-            Log.d("Test","Came to  here Possesive");
+            Log.d("Test","Came to  here ArticleHelper");
             int selectedItemPosition = recyclerView.getChildPosition(v);
             RecyclerView.ViewHolder viewHolder
                     = recyclerView.findViewHolderForPosition(selectedItemPosition);
@@ -73,17 +73,18 @@ public class Possesive extends AppCompatActivity {
                     = (TextView) viewHolder.itemView.findViewById(R.id.textViewGerman);
             String selectedName = (String) textViewName.getText();
             int selectedItemId = -1;
-            for (int i = 0; i < MyData.pgermanArray.length; i++) {
-                if (selectedName.equals(MyData.pgermanArray[i])) {
+            for (int i = 0; i < MyData.articleArrayG.length; i++) {
+                if (selectedName.equals(MyData.articleArrayG[i])) {
                     selectedItemId = MyData.id_[i];
                 }
             }
+            Log.d("Test","ArticleHelper selectedName : "+selectedName);
 
-            Log.d("Test","Possesive selectedName : "+selectedName);
-
-            Intent intent=new Intent(context,Main2Activity.class);
+            Intent intent=new Intent(context,Article.class);
             intent.putExtra("name", selectedName);
             startActivity(intent);
+
+
 
         }
     }

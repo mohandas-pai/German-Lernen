@@ -10,11 +10,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-/**
- * Created by hp on 16-07-2019.
- */
-
-public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> implements Filterable {
+public class CustomAdapter3 extends RecyclerView.Adapter<CustomAdapter3.MyViewHolder> implements Filterable {
 
     private ArrayList<DataModel> dataSet;
     private ArrayList<DataModel> newSet;
@@ -31,25 +27,25 @@ public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter.MyViewHol
         }
     }
 
-    public CustomAdapter2(ArrayList<DataModel> data) {
+    public CustomAdapter3(ArrayList<DataModel> data) {
         this.newSet = data;
         this.dataSet = data;
     }
 
     @Override
-    public CustomAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent,
+    public MyViewHolder onCreateViewHolder(ViewGroup parent,
                                                          int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.cards_layout, parent, false);
 
-        view.setOnClickListener(Possesive.myOnClickListener);
+        view.setOnClickListener(ArticleHelper.myOnClickListener);
 
-        CustomAdapter.MyViewHolder myViewHolder = new CustomAdapter.MyViewHolder(view);
+        CustomAdapter3.MyViewHolder myViewHolder = new CustomAdapter3.MyViewHolder(view);
         return myViewHolder;
     }
 
     @Override
-    public void onBindViewHolder(final CustomAdapter.MyViewHolder holder, final int listPosition) {
+    public void onBindViewHolder(final CustomAdapter3.MyViewHolder holder, final int listPosition) {
 
         TextView textViewName = holder.textViewGerman;
         TextView textViewVersion = holder.textViewEnglish;
@@ -101,4 +97,5 @@ public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter.MyViewHol
         return results;
     }
 }
+
 
