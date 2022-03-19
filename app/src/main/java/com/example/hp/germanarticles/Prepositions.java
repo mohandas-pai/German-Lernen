@@ -44,7 +44,7 @@ public class Prepositions extends AppCompatActivity {
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
     private Prepositions.SectionsPagerAdapter mSectionsPagerAdapter;
-    private static AdView mAdviewAd;
+
     /**
      *
      * The {@link ViewPager} that will host the section contents.
@@ -106,9 +106,6 @@ public class Prepositions extends AppCompatActivity {
             final AlertDialog.Builder builder ;
             builder = new AlertDialog.Builder(getContext(),R.style.MyDialogTheme);
             final View rootView = inflater.inflate(R.layout.fragment_preposition, container, false);
-            mAdviewAd = (AdView)rootView.findViewById(R.id.adView);
-            MobileAds.initialize(this.getContext(), "ca-app-pub-6189499490928275~3401756754");
-            loadBannerAd("ca-app-pub-3940256099942544/6300978111");
             TextView textView = (TextView) rootView.findViewById(R.id.headingText);
             Button btn = (Button) rootView.findViewById(R.id.btn);
             String[] wordArray = new String[]{};
@@ -217,8 +214,5 @@ public class Prepositions extends AppCompatActivity {
             }
             return null;
         }
-    }
-    public static void loadBannerAd(String s){
-        mAdviewAd.loadAd(new AdRequest.Builder().build());
     }
 }

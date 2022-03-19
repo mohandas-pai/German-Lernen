@@ -13,15 +13,10 @@ import com.google.android.gms.ads.MobileAds;
 public class Article extends AppCompatActivity {
 
     String[] wordArray ;
-    private AdView  mAdviewAd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_article);
-
-        mAdviewAd = (AdView)findViewById(R.id.adView);
-        initializeBannerAd("ca-app-pub-6189499490928275~3401756754");
-        loadBannerAd("ca-app-pub-6189499490928275/4436750216");
 
         Bundle b;
         b = getIntent().getExtras();
@@ -48,10 +43,5 @@ public class Article extends AppCompatActivity {
         listView.setAdapter(adapter);
 
     }
-    public void initializeBannerAd(String s){
-        MobileAds.initialize(this, s);
-    }
-    public void loadBannerAd(String s){
-        mAdviewAd.loadAd(new AdRequest.Builder().build());
-    }
+
 }

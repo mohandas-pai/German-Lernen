@@ -28,7 +28,6 @@ public class Main2Activity extends AppCompatActivity {
 
     TextView txtHeading;
     String name;
-    private AdView  mAdviewAd;
 
     String mas[],fem[],neu[],plr[],row[];
 
@@ -37,9 +36,6 @@ public class Main2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        mAdviewAd = (AdView)findViewById(R.id.adView);
-        initializeBannerAd("ca-app-pub-6189499490928275~3401756754");
-        loadBannerAd("ca-app-pub-6189499490928275/4436750216");
 
 
         Bundle b;
@@ -173,11 +169,6 @@ public class Main2Activity extends AppCompatActivity {
             tl.addView(tr, getTblLayoutParams());
         }
     }
-    public void initializeBannerAd(String s){
-        MobileAds.initialize(this, s);
-    }
-    public void loadBannerAd(String s){
-        mAdviewAd.loadAd(new AdRequest.Builder().build());
-    }
+
 
 }

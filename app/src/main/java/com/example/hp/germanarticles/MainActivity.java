@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
     private static RecyclerView recyclerView;
     private static ArrayList<DataModel> data;
     static View.OnClickListener myOnClickListener;
-    private InterstitialAd mInterstitialAd;
     private String selectedName;
 
     @Override
@@ -40,85 +39,6 @@ public class MainActivity extends AppCompatActivity {
 
         myOnClickListener = new MyOnClickListener(this);
 
-        mInterstitialAd = new InterstitialAd(this);
-        initializeInterstitialAd("ca-app-pub-6189499490928275~3401756754");
-        loadInterstitialAd("ca-app-pub-6189499490928275/2212383848");
-
-        mInterstitialAd.setAdListener(new AdListener() {
-            @Override
-            public void onAdLoaded() {
-                // Code to be executed when an ad finishes loading.
-            }
-
-            @Override
-            public void onAdFailedToLoad(int errorCode) {
-                // Code to be executed when an ad request fails.
-            }
-
-            @Override
-            public void onAdOpened() {
-                // Code to be executed when the ad is displayed.
-            }
-
-            @Override
-            public void onAdClicked() {
-                // Code to be executed when the user clicks on an ad.
-                mInterstitialAd.getAdListener().onAdClosed();
-            }
-
-            @Override
-            public void onAdLeftApplication() {
-                // Code to be executed when the user has left the app.
-            }
-
-            @Override
-            public void onAdClosed() {
-                // Code to be executed when the interstitial ad is closed.
-                mInterstitialAd.loadAd(new AdRequest.Builder().build());
-                if (selectedName.equalsIgnoreCase("Possessivpronomen")) {
-
-                    Intent intent = new Intent(getApplicationContext(), Possesive.class);
-                    startActivity(intent);
-
-                } else if (selectedName.equalsIgnoreCase("die") || selectedName.equalsIgnoreCase("der") || selectedName.equalsIgnoreCase("das")) {
-
-                    Intent intent = new Intent(getApplicationContext(), Article.class);
-                    intent.putExtra("name", selectedName);
-                    startActivity(intent);
-
-                } else if (selectedName.equalsIgnoreCase("Modale Verben")) {
-
-                    Intent intent = new Intent(getApplicationContext(), ModalVerb.class);
-                    startActivity(intent);
-                } else if (selectedName.equalsIgnoreCase("Präposition")) {
-
-                    Intent intent = new Intent(getApplicationContext(), Prepositions.class);
-                    startActivity(intent);
-
-                } else if (selectedName.equalsIgnoreCase("Others/Rules")) {
-
-                    Intent intent = new Intent(getApplicationContext(), Rules.class);
-                    startActivity(intent);
-
-                } else if (selectedName.equalsIgnoreCase("Adjektivendungen")) {
-
-                    Intent intent = new Intent(getApplicationContext(), AdjDecl.class);
-                    startActivity(intent);
-
-                } else if (selectedName.equalsIgnoreCase("Präteritum")) {
-
-                    Intent intent = new Intent(getApplicationContext(), prateritum.class);
-                    startActivity(intent);
-
-                } else {
-
-                    Intent intent = new Intent(getApplicationContext(), Main2Activity.class);
-                    intent.putExtra("name", selectedName);
-                    startActivity(intent);
-
-            }
-            }
-        });
 
         recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
         recyclerView.setHasFixedSize(true);
@@ -171,76 +91,56 @@ public class MainActivity extends AppCompatActivity {
             }
 
             if(selectedName.equalsIgnoreCase("Possessivpronomen")){
-                if (mInterstitialAd.isLoaded()) {
-                    mInterstitialAd.show();
-                } else {
+
                     Intent intent = new Intent(context, Possesive.class);
                     startActivity(intent);
-                }
+
             }
             else if(selectedName.equalsIgnoreCase("die") || selectedName.equalsIgnoreCase("der") || selectedName.equalsIgnoreCase("das") ){
-                if (mInterstitialAd.isLoaded()) {
-                    mInterstitialAd.show();
-                } else {
+
                     Intent intent = new Intent(context, Article.class);
                     intent.putExtra("name", selectedName);
                     startActivity(intent);
-                }
+
             }
             else if(selectedName.equalsIgnoreCase("Modale Verben")){
-                if (mInterstitialAd.isLoaded()) {
-                    mInterstitialAd.show();
-                } else {
+
                     Intent intent = new Intent(context, ModalVerb.class);
                     startActivity(intent);
-                }
+
             }
             else if(selectedName.equalsIgnoreCase("Präposition")){
-                if (mInterstitialAd.isLoaded()) {
-                    mInterstitialAd.show();
-                } else {
+
                     Intent intent = new Intent(context, Prepositions.class);
                     startActivity(intent);
-                }
+
             }
             else if(selectedName.equalsIgnoreCase("Others/Rules")){
-                if (mInterstitialAd.isLoaded()) {
-                    mInterstitialAd.show();
-                } else {
+
                     Intent intent = new Intent(context, Rules.class);
                     startActivity(intent);
-                }
+
             }
             else if(selectedName.equalsIgnoreCase("Adjektivendungen")){
-                if (mInterstitialAd.isLoaded()) {
-                    mInterstitialAd.show();
-                } else {
+
                     Intent intent = new Intent(context, AdjDecl.class);
                     startActivity(intent);
-                }
+
             }else if (selectedName.equalsIgnoreCase("Präteritum")) {
 
                 Intent intent = new Intent(getApplicationContext(), prateritum.class);
                 startActivity(intent);
 
             }else {
-                if (mInterstitialAd.isLoaded()) {
-                    mInterstitialAd.show();
-                } else {
+
                     Intent intent = new Intent(context, Main2Activity.class);
                     intent.putExtra("name", selectedName);
                     startActivity(intent);
-                }
+
             }
         }
     }
-    public void initializeInterstitialAd(String s){
-        MobileAds.initialize(this, s);
-    }
-    public void loadInterstitialAd(String s){
-        mInterstitialAd.setAdUnitId(s);
-        mInterstitialAd.loadAd(new AdRequest.Builder().build());
-    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

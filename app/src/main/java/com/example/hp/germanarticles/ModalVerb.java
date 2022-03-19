@@ -46,7 +46,7 @@ public class ModalVerb extends AppCompatActivity {
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
     static TableLayout tl;
-    private static AdView mAdviewAd;
+
     /**
      *
      * The {@link ViewPager} that will host the section contents.
@@ -105,9 +105,7 @@ public class ModalVerb extends AppCompatActivity {
                                  Bundle savedInstanceState) {
 
             View rootView = inflater.inflate(R.layout.fragment_modal_verb, container, false);
-            mAdviewAd = (AdView)rootView.findViewById(R.id.adView);
-            MobileAds.initialize(this.getContext(), "ca-app-pub-6189499490928275~3401756754");
-            loadBannerAd("ca-app-pub-3940256099942544/6300978111");
+
             tl = (TableLayout) rootView.findViewById(R.id.displayLinear);
             TextView textView = (TextView) rootView.findViewById(R.id.headingText);
             if(getArguments().getInt(ARG_SECTION_NUMBER) == 1){
@@ -241,10 +239,6 @@ public class ModalVerb extends AppCompatActivity {
             }
             return null;
         }
-    }
-
-    public static void loadBannerAd(String s){
-        mAdviewAd.loadAd(new AdRequest.Builder().build());
     }
 
 }
