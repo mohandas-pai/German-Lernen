@@ -101,6 +101,11 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(), AdjDecl.class);
                     startActivity(intent);
 
+                } else if (selectedName.equalsIgnoreCase("Präteritum")) {
+
+                    Intent intent = new Intent(getApplicationContext(), prateritum.class);
+                    startActivity(intent);
+
                 } else {
 
                     Intent intent = new Intent(getApplicationContext(), Main2Activity.class);
@@ -209,8 +214,12 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(context, AdjDecl.class);
                     startActivity(intent);
                 }
-            }
-            else {
+            }else if (selectedName.equalsIgnoreCase("Präteritum")) {
+
+                Intent intent = new Intent(getApplicationContext(), prateritum.class);
+                startActivity(intent);
+
+            }else {
                 if (mInterstitialAd.isLoaded()) {
                     mInterstitialAd.show();
                 } else {

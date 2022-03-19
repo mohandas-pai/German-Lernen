@@ -3,15 +3,18 @@
     package="com.example.hp.germanarticles">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".prateritum"></activity>
+
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-6189499490928275~3401756754"/>
+            android:value="ca-app-pub-6189499490928275~3401756754" />
 
         <activity android:name=".Splash">
             <intent-filter>
@@ -20,12 +23,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".MainActivity"></activity>
         <activity android:name=".Main2Activity" />
-        <activity android:name=".Possesive"
-            android:label="Possessivpronomen"/>
+        <activity
+            android:name=".Possesive"
+            android:label="Possessivpronomen" />
         <activity android:name=".Article" />
         <activity
             android:name=".ModalVerb"
@@ -39,8 +41,7 @@
             android:name=".Prepositions"
             android:label="Prepositions"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Rules"></activity>
-
+        <activity android:name=".Rules" />
     </application>
 
 </manifest>
