@@ -5,6 +5,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -13,10 +15,11 @@ import java.util.ArrayList;
  * Created by hp on 16-07-2019.
  */
 
-public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
+public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> implements Filterable {
 
 
     private ArrayList<DataModel> dataSet;
+    private ArrayList<DataModel> newSet;
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
@@ -35,6 +38,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
     public CustomAdapter(ArrayList<DataModel> data) {
         this.dataSet = data;
+        this.newSet = data;
     }
 
     @Override
@@ -65,4 +69,44 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     public int getItemCount() {
         return dataSet.size();
     }
+
+/*https://stackoverflow.com/questions/30398247/how-to-filter-a-recyclerview-with-a-searchview*/
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @SuppressWarnings("unchecked")
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+                dataSet = (ArrayList<DataModel>) results.values;
+                notifyDataSetChanged();
+            }
+
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+                ArrayList<DataModel> filteredResults = null;
+                if (constraint.length() == 0) {
+                    filteredResults = newSet;
+                } else {
+                    filteredResults = getFilteredResults(constraint.toString().toLowerCase());
+                }
+
+                FilterResults results = new FilterResults();
+                results.values = filteredResults;
+
+                return results;
+            }
+        };
+    }
+
+    protected ArrayList<DataModel> getFilteredResults(String constraint) {
+        ArrayList<DataModel> results = new ArrayList<>();
+
+        for (DataModel item : newSet) {
+            if ((item.getGermanName().toLowerCase().contains(constraint)) || (item.getEnglishName().toLowerCase().contains(constraint))) {
+                results.add(item);
+            }
+        }
+        return results;
+    }
+
 }
