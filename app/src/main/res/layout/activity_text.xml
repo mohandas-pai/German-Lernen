@@ -26,12 +26,32 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/headingText">
-        <TextView
-            android:id="@+id/txt"
-            android:textSize="16dp"
-            android:textColor="#fafafa"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/txt"
+                android:textSize="16dp"
+                android:textColor="#fafafa"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_below="@+id/txt"
+                android:fadeScrollbars="false">
+                <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/displayLinear"
+                    android:background="#ffffff"
+                    android:stretchColumns="0,1"
+                    android:isScrollContainer="true"
+                    android:orientation="vertical" >
+                </TableLayout>
+            </HorizontalScrollView>
+
+        </RelativeLayout>
 
     </ScrollView>
 

@@ -46,9 +46,9 @@ public class Adverbs extends AppCompatActivity {
         }else if(name.equalsIgnoreCase("Adverbs of Place")) {
 
             english = new String[]{"Here","There","Left","Right","Up","Down",
-                    "In Front Of","Behind","Everywhere","Nowhere"};
+                    "In Front Of","Behind","Everywhere","Nowhere","Anywhere"};
             german = new String[]{"Hier", "Dort", "Links", "Rechts","Oben","Unten","Vorne",
-                    "Hinten", "Überall", "Nirgends"};
+                    "Hinten", "Überall", "Nirgends","Irgendwo"};
 
         }else if(name.equalsIgnoreCase("Quantifiers")) {
 
