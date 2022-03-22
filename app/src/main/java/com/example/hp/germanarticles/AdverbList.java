@@ -13,9 +13,9 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class ArticleTables extends AppCompatActivity {
+public class AdverbList extends AppCompatActivity {
 
-    private static CustomAdapter4 adapter;
+    private static CustomAdapter5 adapter;
     private RecyclerView.LayoutManager layoutManager;
     private static RecyclerView recyclerView;
     private static ArrayList<DataModel> data;
@@ -24,9 +24,8 @@ public class ArticleTables extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_article_tables);
-
-        myOnClickListener = new ArticleTables.MyOnClickListener2(this);
+        setContentView(R.layout.activity_adverb_list);
+        myOnClickListener = new MyOnClickListener2(this);
 
         recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view3);
         recyclerView.setHasFixedSize(true);
@@ -36,13 +35,13 @@ public class ArticleTables extends AppCompatActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         data = new ArrayList<DataModel>();
-        for (int i = 0; i < MyData.articleTableG.length; i++) {
+        for (int i = 0; i < MyData.adverbG.length; i++) {
             data.add(new DataModel(
-                    MyData.articleTableG[i],
-                    MyData.articleTableE[i]
+                    MyData.adverbG[i],
+                    MyData.adverbE[i]
             ));
         }
-        adapter = new CustomAdapter4(data);
+        adapter = new CustomAdapter5(data);
         recyclerView.setAdapter(adapter);
 
     }
@@ -70,17 +69,22 @@ public class ArticleTables extends AppCompatActivity {
                     = (TextView) viewHolder.itemView.findViewById(R.id.textViewGerman);
             String selectedName = (String) textViewName.getText();
             int selectedItemId = -1;
-            for (int i = 0; i < MyData.articleTableG.length; i++) {
-                if (selectedName.equals(MyData.articleTableG[i])) {
+            for (int i = 0; i < MyData.adverbG.length; i++) {
+                if (selectedName.equals(MyData.adverbG[i])) {
                     selectedItemId = MyData.id_[i];
                 }
             }
             Log.d("Test", "ArticleHelper selectedName : " + selectedName);
 
-            Intent intent = new Intent(context, Main2Activity.class);
-            intent.putExtra("name", selectedName);
-            startActivity(intent);
-
+            if(selectedName.equalsIgnoreCase("Comparative and Superlative")) {
+                Intent intent = new Intent(context, TextActivity.class);
+                intent.putExtra("name", selectedName);
+                startActivity(intent);
+            } else {
+                Intent intent = new Intent(context, Adverbs.class);
+                intent.putExtra("name", selectedName);
+                startActivity(intent);
+            }
 
         }
     }

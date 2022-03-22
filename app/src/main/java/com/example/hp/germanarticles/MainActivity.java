@@ -130,6 +130,11 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), prateritum.class);
                 startActivity(intent);
 
+            }else if(selectedName.equalsIgnoreCase("Adverbs")){
+
+                Intent intent = new Intent(context, AdverbList.class);
+                startActivity(intent);
+
             }else if (selectedName.equalsIgnoreCase("Article Table")) {
 
                 Intent intent = new Intent(getApplicationContext(), ArticleTables.class);
