@@ -73,7 +73,10 @@ public class Adverbs extends AppCompatActivity {
                     "Between","In Front Of","Above/Over",};
             german = new String[]{"in", "an", "auf", "Total","unter","hinter",
                     "neben", "zwischen", "vor","über"};
-
+        }
+        else if(name.equalsIgnoreCase("Futur")) {
+            english = new String[]{"ich","du","er/sie/es","wir","ihr","sie","sie"};
+            german = new String[]{"werde","wirst","wird","werden","werdet","werden","werden"};
         }
     }
     private TextView getTextView(int id, String title, int color, int typeface, int bgColor) {
@@ -109,8 +112,21 @@ public class Adverbs extends AppCompatActivity {
         TableLayout tl = (TableLayout) findViewById(R.id.displayLinear);
         TableRow tr = new TableRow(this);
         tr.setLayoutParams(getLayoutParams());
-        tr.addView(getTextView(0, "Adverb", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
-        tr.addView(getTextView(0, "Meaning", Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
+        if((name.equalsIgnoreCase("Adverbs of Time")) || (name.equalsIgnoreCase("Adverbs of Place")) || (name.equalsIgnoreCase("Quantifiers"))){
+            tr.addView(getTextView(0, "Adverb", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
+            tr.addView(getTextView(0, "Meaning", Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
+        } else if ((name.equalsIgnoreCase("Präpositionen mit Akkustiv")) || (name.equalsIgnoreCase("Präpositionen mit Dativ")) || (name.equalsIgnoreCase("Wechseln Präpositionen"))){
+            tr.addView(getTextView(0, "Präposition", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
+            tr.addView(getTextView(0, "Meaning", Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
+        } else if ((name.equalsIgnoreCase("Futur"))){
+            tr.addView(getTextView(0, "Personal Pronomen", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
+            tr.addView(getTextView(0, "Weden", Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
+        }else{
+            tr.addView(getTextView(0, "German", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
+            tr.addView(getTextView(0, "English", Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
+        }
+
+
         tl.addView(tr, getTblLayoutParams());
     }
 

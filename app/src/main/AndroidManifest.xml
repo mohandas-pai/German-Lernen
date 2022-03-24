@@ -10,7 +10,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TextActivity"></activity>
+        <activity android:name=".TenseList"></activity>
+        <activity android:name=".TextActivity" />
         <activity android:name=".AdverbList" />
         <activity android:name=".Adverbs" />
         <activity android:name=".ArticleTables" />
@@ -44,8 +45,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Prepositions"
-            android:label="Prepositions"
-            />
+            android:label="Prepositions" />
         <activity android:name=".Rules" />
     </application>
 

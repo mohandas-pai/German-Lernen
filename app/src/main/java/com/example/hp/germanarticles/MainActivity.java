@@ -125,9 +125,9 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(context, AdjDecl.class);
                     startActivity(intent);
 
-            }else if (selectedName.equalsIgnoreCase("Präteritum")) {
+            }else if (selectedName.equalsIgnoreCase("Tenses")) {
 
-                Intent intent = new Intent(getApplicationContext(), prateritum.class);
+                Intent intent = new Intent(getApplicationContext(), TenseList.class);
                 startActivity(intent);
 
             }else if(selectedName.equalsIgnoreCase("Adverbs")){

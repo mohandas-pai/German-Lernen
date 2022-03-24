@@ -5,8 +5,8 @@ package com.example.hp.germanarticles;
  */
 
 public class MyData {
-    static String[] germanArray = {"Article Helper","Article Table","Modale Verben","Possessivpronomen","Präposition","Adjektivendungen","Präteritum","Adverbs","Others/Rules"};
-    static String[] englishArray = {"Article Helper","Article Table","Modal Verbs","Possessive Pronoun","Prepositions","Adjective Endings","Imperfect/Simple Past Tense","Adverbs","Others/Rules"};
+    static String[] germanArray = {"Article Helper","Article Table","Modale Verben","Possessivpronomen","Präposition","Adjektivendungen","Tenses","Adverbs","Others/Rules"};
+    static String[] englishArray = {"Article Helper","Article Table","Modal Verbs","Possessive Pronoun","Prepositions","Adjective Endings","Tenses","Adverbs","Others/Rules"};
     static Integer[] id_ = {0, 1, 2, 3, 4, 5, 6, 7, 8,9};
 
     static String[] pgermanArray = {"mein","dein","sein","ihr", "sein","unser","euer","ihr","Ihr"};
@@ -23,6 +23,9 @@ public class MyData {
 
     static String[] PrepG = {"Präpositionen mit Akkustiv","Präpositionen mit Dativ","Wechseln Präpositionen","'Da' mit Präpositionen"};
     static String[] PrepE = {"Accusative Prepositions","Dative Prepositions","Alternating Prepositions","'Da' combined Prepositions"};
+
+    static String[] tensesG = {"Präsens","Perfekt","Präteritum","Plusquamperfekt","Futur"};
+    static String[] tensesE = {"Present tense","Present perfect tense","Imperfect past tense","Past perfect tense","Future tense"};
 
 
 
