@@ -37,18 +37,23 @@ public class TextActivity extends AppCompatActivity {
     private void setdataBasedOnHeading(String name) {
         String sourceString = "";
         if(name.equalsIgnoreCase("Comparative and Superlative")){
-            sourceString = "-> Comparatives in German are made by adding <b>-er</b> to a word like - <br>laut ⇉ laut<b>er</b>.<br><br>" +
-                    "-> Superlatives are formed by adding <b>-sten</b> or <b>-esten</b> with  <b>am</b> before the word like  -<br>laut ⇉ <b>am</b> laut<b>esten</b><br><br>" +
-                    "-> Sometimes an umlaut must be added like -<br> <b>groß</b> (big) ⇉ <b>größer</b> (bigger) ⇉ <b>am größten</b> (the biggest).<br><br>" +
-                    "-> <b>Als</b> (as) can be used to make a comparative sentence (similar to than in English)<br> ich bin älter als er. (I am older than him)<br><br>" +
-                    "-> <b>Am</b> or an <b>article</b> can be used when making a superlative sentence.<br> Meine Prüfung war <b>die</b> einfach<b>ste</b>. (Mine was the easiest exam.)<br>" +
-                    "Meine Flashce ist <b>am</b> voll<b>sten</b>.(My bottle is the fullest.)<br><br>" +
+            sourceString = "-> Comparatives in German are made by adding <u><b>-er</b></u> to a word like - <br>laut ⇉ laut<u><b>er</b></u>.<br><br>" +
+                    "-> Superlatives are formed by adding <u><b>-sten</b></u> or <u><b>-esten</b></u> with  <u><b>am</b></u> before the word like  -<br>laut ⇉ <u><b>am</b></u> laut<u><b>esten</b></u><br><br>" +
+                    "-> Sometimes an umlaut must be added like -<br> <u><b>groß</b></u> (big) ⇉ <u><b>größer</b></u> (bigger) ⇉ <u><b>am größten</b></u> (the biggest).<br><br>" +
+                    "-> <u><b>Als</b></u> (as) can be used to make a comparative sentence (similar to than in English)<br> ich bin älter als er. (I am older than him)<br><br>" +
+                    "-> <u><b>Am</b></u> or an <u><b>article</b></u> can be used when making a superlative sentence.<br> Meine Prüfung war <u><b>die</b></u> einfach<u><b>ste</b></u>. (Mine was the easiest exam.)<br>" +
+                    "Meine Flashce ist <u><b>am</b></u> voll<u><b>sten</b></u>.(My bottle is the fullest.)<br><br>" +
                     "-> Common irregular compararives and superlatives - ";
             word = new String[]{"Viel (a lot)","Gut (good)","Gern (like)","Hoch (high)","Nah (near)"};
             comp = new String[]{"Mehr (more)","Besser (better)","Lieber (prefer)","Höher (higher)","Näher (nearer)"};
             sup = new String[]{"Am meisten (most)","Am besten (best)","Am liebsten (favourite)","Am höchsten (highest)","Am nächsten (nearest)"};
             addHeaders();
             addData();
+        }else if(name.equalsIgnoreCase("'Da' mit Präpositionen")){
+            sourceString = "-> 'Da' combines with prepositions and most of the time it changes their meanings.<br><br>-> It usually refers to things that have been previously mentioned in a sentence " +
+                    "or things that are clearly being talked about from the context.<br><br>" +
+                    "Da + auf = Darauf<br> Da + mit = Damit<br> Da + bei = Dabei<br> Da + für = Dafür<br> Da + über = Darüber<br><br>" +
+                    "Hast du dein Handy <u><b>dabei</b></u>? (Do you have your phone <u><b>with</u></b> you?)<br>Was willst du <u><b>damit</u></b> machen? (What do you want to do <u><b>with</u></b> it?)<br>ich habe nicht <u><b>darüber</u></b> nachgedacht. (I haven’t thought <u><b>about it</u></b>.)";
         }
         txt.setText(Html.fromHtml(sourceString));
     }

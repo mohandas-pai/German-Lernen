@@ -58,6 +58,23 @@ public class Adverbs extends AppCompatActivity {
                     "Besonders", "Zu", "Ein bisschen"};
 
         }
+        else if(name.equalsIgnoreCase("Präpositionen mit Akkustiv")) {
+            english = new String[]{"Through","Without, Against","For","At/Around","Until/Till","Alongside"};
+            german = new String[]{"Durch", "Ohne", "Gegen", "für","um","bis", "Entlang"};
+
+        }else if(name.equalsIgnoreCase("Präpositionen mit Dativ")) {
+            english = new String[]{"From","Except", "At/With/From","With","Since","After/To",
+                    "Of/By/From","At/To","From","Opposite To"};
+            german = new String[]{"aus", "Außer", "bei", "mit","seit","nach",
+                    "von", "Zu", "ab", "Gegenüber"};
+
+        }else if(name.equalsIgnoreCase("Wechseln Präpositionen")) {
+            english = new String[]{"in","on(vertical)","on(horizontal)","Below","Behind","Near To/Next To",
+                    "Between","In Front Of","Above/Over",};
+            german = new String[]{"in", "an", "auf", "Total","unter","hinter",
+                    "neben", "zwischen", "vor","über"};
+
+        }
     }
     private TextView getTextView(int id, String title, int color, int typeface, int bgColor) {
         final TextView tv = new TextView(this);

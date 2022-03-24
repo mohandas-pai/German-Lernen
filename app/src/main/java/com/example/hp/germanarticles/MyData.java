@@ -21,6 +21,9 @@ public class MyData {
     static String[] adverbG = {"Adverbs of Time","Adverbs of Place","Comparative and Superlative","Quantifiers"};
     static String[] adverbE = {"Adverbs of Time","Adverbs of Place","Comparative and Superlative","Quantifiers"};
 
+    static String[] PrepG = {"Präpositionen mit Akkustiv","Präpositionen mit Dativ","Wechseln Präpositionen","'Da' mit Präpositionen"};
+    static String[] PrepE = {"Accusative Prepositions","Dative Prepositions","Alternating Prepositions","'Da' combined Prepositions"};
+
 
 
 }
