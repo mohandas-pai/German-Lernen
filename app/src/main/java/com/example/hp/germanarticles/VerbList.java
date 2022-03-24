@@ -13,9 +13,9 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class TenseList extends AppCompatActivity {
+public class VerbList extends AppCompatActivity {
 
-    private static CustomAdapter7 adapter;
+    private static CustomAdapter8 adapter;
     private RecyclerView.LayoutManager layoutManager;
     private static RecyclerView recyclerView;
     private static ArrayList<DataModel> data;
@@ -24,8 +24,8 @@ public class TenseList extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tense_list);
-        myOnClickListener = new MyOnClickListener2(this);
+        setContentView(R.layout.activity_verb_list);
+        myOnClickListener = new VerbList.MyOnClickListener2(this);
 
         recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view3);
         recyclerView.setHasFixedSize(true);
@@ -35,13 +35,13 @@ public class TenseList extends AppCompatActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         data = new ArrayList<DataModel>();
-        for (int i = 0; i < MyData.tensesG.length; i++) {
+        for (int i = 0; i < MyData.verbG.length; i++) {
             data.add(new DataModel(
-                    MyData.tensesG[i],
-                    MyData.tensesE[i]
+                    MyData.verbG[i],
+                    MyData.verbE[i]
             ));
         }
-        adapter = new CustomAdapter7(data);
+        adapter = new CustomAdapter8(data);
         recyclerView.setAdapter(adapter);
 
     }
@@ -69,22 +69,15 @@ public class TenseList extends AppCompatActivity {
                     = (TextView) viewHolder.itemView.findViewById(R.id.textViewGerman);
             String selectedName = (String) textViewName.getText();
             int selectedItemId = -1;
-            for (int i = 0; i < MyData.tensesG.length; i++) {
-                if (selectedName.equals(MyData.tensesG[i])) {
+            for (int i = 0; i < MyData.verbG.length; i++) {
+                if (selectedName.equals(MyData.verbG[i])) {
                     selectedItemId = MyData.id_[i];
                 }
             }
-            Log.d("Test", "ArticleHelper selectedName : " + selectedName);
 
-            if(selectedName.equalsIgnoreCase("Präteritum")) {
-                Intent intent = new Intent(context, prateritum.class);
-                intent.putExtra("name", selectedName);
-                startActivity(intent);
-            }else {
-                Intent intent = new Intent(context, TextActivity.class);
-                intent.putExtra("name", selectedName);
-                startActivity(intent);
-            }
+            Intent intent = new Intent(context, Adverbs.class);
+            intent.putExtra("name", selectedName);
+            startActivity(intent);
 
         }
     }

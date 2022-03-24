@@ -10,7 +10,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TenseList"></activity>
+        <activity android:name=".VerbList"></activity>
+        <activity android:name=".TenseList" />
         <activity android:name=".TextActivity" />
         <activity android:name=".AdverbList" />
         <activity android:name=".Adverbs" />

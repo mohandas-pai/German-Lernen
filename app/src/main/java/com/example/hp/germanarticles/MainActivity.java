@@ -102,9 +102,9 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
 
             }
-            else if(selectedName.equalsIgnoreCase("Modale Verben")){
+            else if(selectedName.equalsIgnoreCase("Verben")){
 
-                    Intent intent = new Intent(context, ModalVerb.class);
+                    Intent intent = new Intent(context, VerbList.class);
                     startActivity(intent);
 
             }

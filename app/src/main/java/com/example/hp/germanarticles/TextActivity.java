@@ -75,6 +75,14 @@ public class TextActivity extends AppCompatActivity {
             sup = new String[]{"war","warst","war","waren","wart","waren","waren"};
             addHeaders();
             addData();
+        }else if(name.equalsIgnoreCase("Futur")) {
+            sourceString = "❖ Future is used to describe intentions for the future or make assumptions about something that will happen in the future. It uses the auxiliary verb <u><b>Werden + verb in infinitive</u></b>.<br><br>" +
+                    "<ul><li>Morgen <u><b>werde</u></b> ich viel <u><b>arbeiten</u></b>. (Tomorrow I’ll work a lot.)</li><li>Nächstes Jahr <u><b>werden</u></b> wir in der Universität <u><b>sein</u></b>. (Next year we’ll be in the university.)</li>" +
+                    "<li><u><b>Wirst</u></b> du morgen spazieren <u><b>gehen</u></b>? (Will you go on a walk tomorrow?)</li></ul>";
+            word = new String[]{"ich","du","er/sie/es","wir","ihr","sie","sie"};
+            comp = new String[]{"werde","wirst","wird","werden","werdet","werden","werden"};
+            addHeaders();
+            addData2();
         }
         txt.setText(Html.fromHtml(sourceString));
     }
@@ -120,6 +128,9 @@ public class TextActivity extends AppCompatActivity {
             tr.addView(getTextView(0, "Pronomen", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
             tr.addView(getTextView(0, "Haben", Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
             tr.addView(getTextView(0, "Sein", Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
+        }else if(name.equalsIgnoreCase("Futur")){
+            tr.addView(getTextView(0, "Pronomen", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
+            tr.addView(getTextView(0, "Werden", Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
         }else {
             tr.addView(getTextView(0, "Word", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
             tr.addView(getTextView(0, "Comparative", Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
@@ -139,6 +150,16 @@ public class TextActivity extends AppCompatActivity {
             tr.addView(getTextView(i + 1, word[i], Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
             tr.addView(getTextView(i + 2, comp[i], Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this, R.color.colorAccent)));
             tr.addView(getTextView(i + 3, sup[i], Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this, R.color.colorAccent)));
+            tl.addView(tr, getTblLayoutParams());
+        }
+    }
+    public void addData2() {
+        TableLayout tl = (TableLayout) findViewById(R.id.displayLinear);
+        for (int i = 0; i < word.length; i++) {
+            TableRow tr = new TableRow(this);
+            tr.setLayoutParams(getLayoutParams());
+            tr.addView(getTextView(i + 1, word[i], Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
+            tr.addView(getTextView(i + 2, comp[i], Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this, R.color.colorAccent)));
             tl.addView(tr, getTblLayoutParams());
         }
     }

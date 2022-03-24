@@ -195,7 +195,7 @@ public class AdjDecl extends AppCompatActivity {
                 mas = new String[]{"er", "en", "em", "en"};
                 fem = new String[]{"e", "e", "er", "er"};
                 neu = new String[]{"es", "es", "em", "en"};
-                plr = new String[]{"e", "e", "en", "er"};
+                plr = new String[]{"e", "e", "en+n", "er"};
             }
 
             TableRow tr = new TableRow(getContext().getApplicationContext());
