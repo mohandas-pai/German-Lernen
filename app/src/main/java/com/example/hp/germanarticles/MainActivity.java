@@ -26,9 +26,11 @@ public class MainActivity extends AppCompatActivity {
 
     //private static RecyclerView.Adapter adapter;
     private static CustomAdapter adapter;
+    //private static CustomAdapterAll adapterAll;
     private RecyclerView.LayoutManager layoutManager;
+    //private RecyclerView.LayoutManager layoutManagerAll;
     private static RecyclerView recyclerView;
-    private static ArrayList<DataModel> data;
+    private static ArrayList<DataModel> data,dataAll;
     static View.OnClickListener myOnClickListener;
     private String selectedName;
 
@@ -38,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         myOnClickListener = new MyOnClickListener(this);
-
+        //getWindow().setNavigationBarColor(getResources().getColor(R.color.colorPrimaryDark));
 
         recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
         recyclerView.setHasFixedSize(true);
@@ -55,6 +57,16 @@ public class MainActivity extends AppCompatActivity {
                     MyData.id_[i]
             ));
         }
+
+//        dataAll = new ArrayList<DataModel>();
+//        for (int i=0; i< MyData.germanDataAll.length;i++){
+//            data.add(new DataModel(
+//                    MyData.germanDataAll[i],
+//                    MyData.englishDataAll[i],
+//                    MyData.id_[i]
+//            ));
+//        }
+//        adapterAll = new CustomAdapterAll(dataAll);
 
         adapter = new CustomAdapter(data);
         recyclerView.setAdapter(adapter);
@@ -140,7 +152,11 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), ArticleTables.class);
                 startActivity(intent);
 
-            }else {
+            }else if(selectedName.equalsIgnoreCase("Konjunktiv und Konjunktionen")) {
+
+                Intent intent = new Intent(getApplicationContext(), ConjuctiveList.class);
+                startActivity(intent);
+            } else {
 
                     Intent intent = new Intent(context, Main2Activity.class);
                     intent.putExtra("name", selectedName);
@@ -160,6 +176,10 @@ public class MainActivity extends AppCompatActivity {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String text) {
+
+                if(text.equalsIgnoreCase("sharvari")){
+                    setTitle("K");
+                }
                 return false;
             }
 

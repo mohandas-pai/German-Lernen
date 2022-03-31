@@ -13,9 +13,9 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class TenseList extends AppCompatActivity {
+public class ConjuctiveList extends AppCompatActivity {
 
-    private static CustomAdapter7 adapter;
+    private static CustomAdapter10 adapter;
     private RecyclerView.LayoutManager layoutManager;
     private static RecyclerView recyclerView;
     private static ArrayList<DataModel> data;
@@ -24,7 +24,7 @@ public class TenseList extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tense_list);
+        setContentView(R.layout.activity_conjuctive_list);
         myOnClickListener = new MyOnClickListener2(this);
 
         recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view3);
@@ -35,16 +35,17 @@ public class TenseList extends AppCompatActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         data = new ArrayList<DataModel>();
-        for (int i = 0; i < MyData.tensesG.length; i++) {
+        for (int i = 0; i < MyData.conG.length; i++) {
             data.add(new DataModel(
-                    MyData.tensesG[i],
-                    MyData.tensesE[i]
+                    MyData.conG[i],
+                    MyData.conE[i]
             ));
         }
-        adapter = new CustomAdapter7(data);
+        adapter = new CustomAdapter10(data);
         recyclerView.setAdapter(adapter);
 
     }
+
     private class MyOnClickListener2 implements View.OnClickListener {
 
         private final Context context;
@@ -56,12 +57,10 @@ public class TenseList extends AppCompatActivity {
 
         @Override
         public void onClick(View v) {
-            Log.d("Test","Came to  here MyOnClickListener2");
             removeItem1(v);
         }
 
         private void removeItem1(View v) {
-            Log.d("Test", "Came to  here ArticleHelper");
             int selectedItemPosition = recyclerView.getChildPosition(v);
             RecyclerView.ViewHolder viewHolder
                     = recyclerView.findViewHolderForPosition(selectedItemPosition);
@@ -69,17 +68,15 @@ public class TenseList extends AppCompatActivity {
                     = (TextView) viewHolder.itemView.findViewById(R.id.textViewGerman);
             String selectedName = (String) textViewName.getText();
             int selectedItemId = -1;
-            for (int i = 0; i < MyData.tensesG.length; i++) {
-                if (selectedName.equals(MyData.tensesG[i])) {
+            for (int i = 0; i < MyData.conG.length; i++) {
+                if (selectedName.equals(MyData.conG[i])) {
                     selectedItemId = MyData.id_[i];
                 }
             }
-            Log.d("Test", "ArticleHelper selectedName : " + selectedName);
 
-                Intent intent = new Intent(context, TextActivity.class);
-                intent.putExtra("name", selectedName);
-                startActivity(intent);
-
+            Intent intent = new Intent(context, TextActivity.class);
+            intent.putExtra("name", selectedName);
+            startActivity(intent);
 
         }
     }

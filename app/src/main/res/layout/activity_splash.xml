@@ -17,18 +17,23 @@
         android:layout_marginTop="100dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="20dp"
-        android:src="@drawable/ic_launcher_foreground" />
+        android:src="@drawable/ic_logo_top" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="159dp"
-        android:layout_marginTop="470dp"
-        android:layout_marginBottom="400dp"
-        android:fontFamily="sans-serif-black"
-        android:text="   German Lernen"
-        android:textAlignment="center"
-        android:textColor="@color/colorSplash"
-        android:textSize="60sp" />
+        <ImageView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="159dp"
+            android:layout_marginTop="470dp"
+            android:layout_marginBottom="300dp"
+            android:src="@drawable/ic_logo_bottom" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="#ffffff"
+            android:gravity="right"
+            android:text="© Amazing Apps   ">
+
+        </TextView>
 
 </android.support.design.widget.CoordinatorLayout>

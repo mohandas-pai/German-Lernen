@@ -159,8 +159,8 @@ public class Adverbs extends AppCompatActivity {
             addHeaders();
             addData2();
         } else if (name.equalsIgnoreCase("Möchten")) {
-            english = new String[]{"ich","du","er/sie/es","wir","ihr","sie","Sie"};
-            german = new String[]{"möchte","möchtest","möchte","möchten","möchtet","möchten","möchten"};
+            german = new String[]{"ich","du","er/sie/es","wir","ihr","sie","Sie"};
+            english = new String[]{"möchte","möchtest","möchte","möchten","möchtet","möchten","möchten"};
             addHeaders();
             addData();
         } else if (name.equalsIgnoreCase("Werden")) {
@@ -286,21 +286,24 @@ public class Adverbs extends AppCompatActivity {
         tr.setLayoutParams(getLayoutParams());
         if((name.equalsIgnoreCase("Adverbs of Time")) || (name.equalsIgnoreCase("Adverbs of Place")) || (name.equalsIgnoreCase("Quantifiers"))){
             tr.addView(getTextView(0, "Adverb", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
-            tr.addView(getTextView(0, "Meaning", Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
+            tr.addView(getTextView(0, "Meaning", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
         } else if ((name.equalsIgnoreCase("Präpositionen mit Akkustiv")) || (name.equalsIgnoreCase("Präpositionen mit Dativ")) || (name.equalsIgnoreCase("Wechseln Präpositionen"))){
             tr.addView(getTextView(0, "Präposition", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
-            tr.addView(getTextView(0, "Meaning", Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
+            tr.addView(getTextView(0, "Meaning", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
         } else if ((name.equalsIgnoreCase("Futur"))){
             tr.addView(getTextView(0, "Pronomen", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
-            tr.addView(getTextView(0, "Werden", Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
-        }else if((name.equalsIgnoreCase("Haben"))|| (name.equalsIgnoreCase("Sein")) || (name.equalsIgnoreCase("Müssen")) || (name.equalsIgnoreCase("Können")) || (name.equalsIgnoreCase("Dürfen")) || (name.equalsIgnoreCase("Sollen")) || (name.equalsIgnoreCase("Wollen")) || (name.equalsIgnoreCase("Mögen")) || (name.equalsIgnoreCase("Möchten")) || (name.equalsIgnoreCase("Werden")) || (name.equalsIgnoreCase("Sagen")) || (name.equalsIgnoreCase("Geben")) || (name.equalsIgnoreCase("Kommen")) || (name.equalsIgnoreCase("Machen")) || (name.equalsIgnoreCase("Gehen")) || (name.equalsIgnoreCase("Heißen")) || (name.equalsIgnoreCase("Wissen")) || (name.equalsIgnoreCase("Sehen")) || (name.equalsIgnoreCase("Finden")) || (name.equalsIgnoreCase("Bleiben")) || (name.equalsIgnoreCase("Fahren"))){
+            tr.addView(getTextView(0, "Werden", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
+        }else if((name.equalsIgnoreCase("Haben"))|| (name.equalsIgnoreCase("Sein")) || (name.equalsIgnoreCase("Müssen")) || (name.equalsIgnoreCase("Können")) || (name.equalsIgnoreCase("Dürfen")) || (name.equalsIgnoreCase("Sollen")) || (name.equalsIgnoreCase("Wollen")) || (name.equalsIgnoreCase("Mögen")) || (name.equalsIgnoreCase("Werden")) || (name.equalsIgnoreCase("Sagen")) || (name.equalsIgnoreCase("Geben")) || (name.equalsIgnoreCase("Kommen")) || (name.equalsIgnoreCase("Machen")) || (name.equalsIgnoreCase("Gehen")) || (name.equalsIgnoreCase("Heißen")) || (name.equalsIgnoreCase("Wissen")) || (name.equalsIgnoreCase("Sehen")) || (name.equalsIgnoreCase("Finden")) || (name.equalsIgnoreCase("Bleiben")) || (name.equalsIgnoreCase("Fahren"))) {
             tr.addView(getTextView(0, "Pronomen", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
-            tr.addView(getTextView(0, "Present", Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
-            tr.addView(getTextView(0, "Past", Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
-
-        }else{
+            tr.addView(getTextView(0, "Present", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
+            tr.addView(getTextView(0, "Past", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
+        }else if((name.equalsIgnoreCase("Möchten")) ){
+            tr.addView(getTextView(0, "Pronomen", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
+            tr.addView(getTextView(0, "Past", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
+        }
+        else{
             tr.addView(getTextView(0, "German", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
-            tr.addView(getTextView(0, "English", Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
+            tr.addView(getTextView(0, "English", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
 
         }
 
@@ -316,8 +319,8 @@ public class Adverbs extends AppCompatActivity {
         for (int i = 0; i < english.length; i++) {
             TableRow tr = new TableRow(this);
             tr.setLayoutParams(getLayoutParams());
-            tr.addView(getTextView(i + 1, german[i], Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
-            tr.addView(getTextView(i + 2, english[i], Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this, R.color.colorAccent)));
+            tr.addView(getTextView(i + 1, german[i], Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
+            tr.addView(getTextView(i + 2, english[i], Color.BLACK, Typeface.BOLD, ContextCompat.getColor(this, R.color.colorAccent)));
             tl.addView(tr, getTblLayoutParams());
         }
     }
@@ -327,9 +330,9 @@ public class Adverbs extends AppCompatActivity {
         for (int i = 0; i < english.length; i++) {
             TableRow tr = new TableRow(this);
             tr.setLayoutParams(getLayoutParams());
-            tr.addView(getTextView(i + 1, german[i], Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
-            tr.addView(getTextView(i + 2, english[i], Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this, R.color.colorAccent)));
-            tr.addView(getTextView(i + 3, third[i], Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this, R.color.colorAccent)));
+            tr.addView(getTextView(i + 1, english[i], Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
+            tr.addView(getTextView(i + 2, german[i], Color.BLACK, Typeface.BOLD, ContextCompat.getColor(this, R.color.colorAccent)));
+            tr.addView(getTextView(i + 3, third[i], Color.BLACK, Typeface.BOLD, ContextCompat.getColor(this, R.color.colorAccent)));
             tl.addView(tr, getTblLayoutParams());
         }
     }

@@ -16,7 +16,7 @@ public class TextActivity extends AppCompatActivity {
 
     TextView txtHeading,txt;
     String name;
-    String word[],comp[],sup[];
+    String word[],comp[],sup[],four[];
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,12 +75,52 @@ public class TextActivity extends AppCompatActivity {
             sup = new String[]{"war","warst","war","waren","wart","waren","waren"};
             addHeaders();
             addData();
-        }else if(name.equalsIgnoreCase("Futur")) {
+        }else if(name.equalsIgnoreCase("Futur I")) {
             sourceString = "❖ Future is used to describe intentions for the future or make assumptions about something that will happen in the future. It uses the auxiliary verb <u><b>Werden + verb in infinitive</u></b>.<br><br>" +
                     "<ul><li>Morgen <u><b>werde</u></b> ich viel <u><b>arbeiten</u></b>. (Tomorrow I’ll work a lot.)</li><li>Nächstes Jahr <u><b>werden</u></b> wir in der Universität <u><b>sein</u></b>. (Next year we’ll be in the university.)</li>" +
                     "<li><u><b>Wirst</u></b> du morgen spazieren <u><b>gehen</u></b>? (Will you go on a walk tomorrow?)</li></ul>";
             word = new String[]{"ich","du","er/sie/es","wir","ihr","sie","sie"};
             comp = new String[]{"werde","wirst","wird","werden","werdet","werden","werden"};
+            addHeaders();
+            addData2();
+        }else if(name.equalsIgnoreCase("Präteritum")) {
+            sourceString = "❖ Imperfect past tense or simple past, is also used to describe an event that happened in the past but Präteritum is used more in texts, articles, novels, ....<p style=\"text-align:center\">⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯</p>"+
+                    "<ul><li> Letztes Jahr <u><b>lernte</u></b> ich Deutsch. (Last year I learned German.) </li><li> Wir <u><b>waren</u></b> bei Oma. (We were with grandma.)</li><li>Sie <u><b>hatte</u></b> zu viel Arbeite, deshalb <u><b>arbeitete</u></b> sie bis Mitternacht. (She had too much work, that’s why she worked until midnight.)</li></ul><p style=\"text-align:center\">⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯</p>"+
+            "❖ Verbs and their conjugation change in Präteritum, most important ones:";
+            word = new String[]{"ich","du","er/sie/es","wir","ihr","sie","sie"};
+            comp = new String[]{"war", "warst", "war", "waren","wart","waren","waren"};
+            sup = new String[]{"hatte", "hattest", "hatte", "hatten","hattet","hatten","hatten"};
+            four = new String[]{"wurde", "wurdest", "wurde", "wurden","wurdet","wurden","wurden"};
+            addHeaders();
+            addData3();
+        }else if(name.equalsIgnoreCase("Konjunktiv I")){
+            sourceString="❖ Conjunctive I is used in indirect speech like when you want to rephrase something said by someone. Verbs and conjugations change.<p style=\"text-align:center\">⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯</p>" +
+                    "<ul><li>Du sagst, du habest verschlafen und seist deshalb zu spät. (You say that you overslept and that you are therefore too late.)</li><li>John sagt, er habe ihn gefragt. (John said that he asked him.)</li>" +
+                    "<li>Sie denkt, sie müsse früh ins bett gehen. (She thought that she should go to bed early.)</li></ul><p style=\"text-align:center\">⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯</p>" +
+                    "All verbs are conjugated like this:";
+            word = new String[]{"ich","du","er/sie/es","wir","ihr","sie","sie"};
+            comp = new String[]{"Habe (-e)","Habest (-est)","Habe (-e)","Haben (-en)","Habet (-et)","Haben (-en)","Haben (-en)"};
+            addHeaders();
+            addData2();
+        }else if(name.equalsIgnoreCase("Konjunktiv II")){
+            sourceString="❖ Conjunctive 2 is used for things that are not real, be it wishes, advices, or suggestions. It can also be used to ask more politely for something.<p style=\"text-align:center\">⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯</p>" +
+                    "<ul><li>Wir würden gern etwas essen. (We’d like to have something to eat.)</li><li>Sie wäre gern am Strand. (She’d like to be at the beach.)</li>" +
+                    "<li>Ich hätte nichts gesagt. (I wish I didn’t say anything.)</li><li>Könnten Sie mir bitte helfen? (Could you please help me?)</li></ul><p style=\"text-align:center\">⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯</p>" +
+                    "Irregular verbs usually take their form in Präteritum + Umlaut";
+            word = new String[]{"Haben","Sein","Werden"};
+            comp = new String[]{"Hätten","Wären","Würden"};
+            addHeaders();
+            addData2();
+        }else if(name.equalsIgnoreCase("Konjunktionen")){
+            sourceString="❖ Conjunctions are words that connect two sentences (because, although,...), and there are two types subordinating conjunctions (Aber-Und), those affect the word order, and coordinating conjunctions (Bevor-Als), that have no effect on the word order.<p style=\"text-align:center\">⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯</p>" +
+                    "❖ <u><b>Wenn</u></b> is used with an event that is more likely to happen<br> <u><b>Falls</u></b> with the less likely events.<br><br><u><b>Als</u></b> is used to represent a time in the past that will not be repeated and cannot be used for the future like: Als ich ein kind war. (When I was a child.)<br>" +
+                    "<u><b>Wenn</u></b> is used with events that either are in the future or a past that can be repeated.<p style=\"text-align:center\">⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯</p>" +
+                    "❖ Coordinating conjunctions<ul><li>Ich möchte ein Spiel spielen, <u><b>aber</u></b> ich habe keine Zeit. (I want to play a game, but I have no time.)</li><li>Ich bin sehr beschäftigt, <u><b>denn</u></b> ich habe viel zu tun. (I’m very busy because I have a lot to do.)</li>" +
+                    "<li>Möchtest du ins Kino <u><b>oder</u></b> in den Park gehen? (Do you want to go to the cinema or the park?)</li></ul><p style=\"text-align:center\">⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯</p>" +
+                    "❖ Subordinating conjunctions send the conjugated verb to the end of the sentence. <ul><li>Ich überlege, <u><b>bis</u></b> nächstes Jahr einen Teilzeitjob zu machen, <u><b>weil</u></b> ich Geld verdienen möchte. (I’m considering doing a part time job until next year, because I want to earn money.)</li><li><u><b>Obwohl</u></b> er sagte, <u><b>dass</u></b> er nicht nach draußen gehen möchte, hat er seine Zeit im Park genossen. (Although he said that he didn't want to go outside, he enjoyed his time in the park.)</li>" +
+                    "<li><u><b>Wenn/Falls</u></b> es kühler wird, nehme ich eine Jacke mit. (If it’s cold I’ll take a jacket with me.)</li></ul><p style=\"text-align:center\">⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯</p>";
+            word = new String[]{"Aber","Denn","Sondern","Oder","Und","","Bevor","Wenn/Falls","Bis","Dass","Nachdem","Ob","Weil","Obwohl","Als (time)"};
+            comp = new String[]{"But","Because","But rather","Or","And","","Before","When, if","Until","That","After","If","Because","Although/even though","When"};
             addHeaders();
             addData2();
         }
@@ -122,19 +162,33 @@ public class TextActivity extends AppCompatActivity {
         tr.setLayoutParams(getLayoutParams());
         if(name.equalsIgnoreCase("Plusquamperfekt")){
             tr.addView(getTextView(0, "Pronomen", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
-            tr.addView(getTextView(0, "Hatten", Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
-            tr.addView(getTextView(0, "Waren", Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
+            tr.addView(getTextView(0, "Hatten", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
+            tr.addView(getTextView(0, "Waren", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
         }else if(name.equalsIgnoreCase("Perfekt")){
             tr.addView(getTextView(0, "Pronomen", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
-            tr.addView(getTextView(0, "Haben", Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
-            tr.addView(getTextView(0, "Sein", Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
-        }else if(name.equalsIgnoreCase("Futur")){
+            tr.addView(getTextView(0, "Haben", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
+            tr.addView(getTextView(0, "Sein", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
+        }else if(name.equalsIgnoreCase("Futur I")){
             tr.addView(getTextView(0, "Pronomen", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
-            tr.addView(getTextView(0, "Werden", Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
+            tr.addView(getTextView(0, "Werden", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
+        } else if(name.equalsIgnoreCase("Konjunktiv I")){
+            tr.addView(getTextView(0, "Pronomen", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
+            tr.addView(getTextView(0, "Verb", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
+        }else if(name.equalsIgnoreCase("Konjunktiv II")){
+            tr.addView(getTextView(0, "Infinitiv", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
+            tr.addView(getTextView(0, "Konjunktiv II", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
+        }else if(name.equalsIgnoreCase("Konjunktionen")){
+            tr.addView(getTextView(0, "Conjunction", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
+            tr.addView(getTextView(0, "Meaning", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
+        }else if(name.equalsIgnoreCase("Präteritum")){
+            tr.addView(getTextView(0, "Pronomen", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
+            tr.addView(getTextView(0, "Sein", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
+            tr.addView(getTextView(0, "Haben", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
+            tr.addView(getTextView(0, "Werden", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
         }else {
             tr.addView(getTextView(0, "Word", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
-            tr.addView(getTextView(0, "Comparative", Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
-            tr.addView(getTextView(0, "Superlative", Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
+            tr.addView(getTextView(0, "Comparative", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
+            tr.addView(getTextView(0, "Superlative", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
         }
         tl.addView(tr, getTblLayoutParams());
     }
@@ -147,9 +201,9 @@ public class TextActivity extends AppCompatActivity {
         for (int i = 0; i < word.length; i++) {
             TableRow tr = new TableRow(this);
             tr.setLayoutParams(getLayoutParams());
-            tr.addView(getTextView(i + 1, word[i], Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
-            tr.addView(getTextView(i + 2, comp[i], Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this, R.color.colorAccent)));
-            tr.addView(getTextView(i + 3, sup[i], Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this, R.color.colorAccent)));
+            tr.addView(getTextView(i + 1, word[i], Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
+            tr.addView(getTextView(i + 2, comp[i], Color.BLACK, Typeface.BOLD, ContextCompat.getColor(this, R.color.colorAccent)));
+            tr.addView(getTextView(i + 3, sup[i], Color.BLACK, Typeface.BOLD, ContextCompat.getColor(this, R.color.colorAccent)));
             tl.addView(tr, getTblLayoutParams());
         }
     }
@@ -158,10 +212,24 @@ public class TextActivity extends AppCompatActivity {
         for (int i = 0; i < word.length; i++) {
             TableRow tr = new TableRow(this);
             tr.setLayoutParams(getLayoutParams());
-            tr.addView(getTextView(i + 1, word[i], Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
-            tr.addView(getTextView(i + 2, comp[i], Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this, R.color.colorAccent)));
+            tr.addView(getTextView(i + 1, word[i], Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
+            tr.addView(getTextView(i + 2, comp[i], Color.BLACK, Typeface.BOLD, ContextCompat.getColor(this, R.color.colorAccent)));
             tl.addView(tr, getTblLayoutParams());
         }
     }
+    public void addData3() {
+        TableLayout tl = (TableLayout) findViewById(R.id.displayLinear);
+        for (int i = 0; i < word.length; i++) {
+            TableRow tr = new TableRow(this);
+            tr.setLayoutParams(getLayoutParams());
+            tr.addView(getTextView(i + 1, word[i], Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
+            tr.addView(getTextView(i + 2, comp[i], Color.BLACK, Typeface.BOLD, ContextCompat.getColor(this, R.color.colorAccent)));
+            tr.addView(getTextView(i + 3, sup[i], Color.BLACK, Typeface.BOLD, ContextCompat.getColor(this, R.color.colorAccent)));
+            tr.addView(getTextView(i + 4, four[i], Color.BLACK, Typeface.BOLD, ContextCompat.getColor(this, R.color.colorAccent)));
+            tl.addView(tr, getTblLayoutParams());
+        }
+    }
+
+
 
 }

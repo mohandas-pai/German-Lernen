@@ -67,7 +67,7 @@ public class prateritum extends AppCompatActivity {
         TableRow tr = new TableRow(this);
         tr.setLayoutParams(getLayoutParams());
         tr.addView(getTextView(0, "", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
-        tr.addView(getTextView(0, "Sein", Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
+        tr.addView(getTextView(0, "Sein", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
         tr.addView(getTextView(0, "Haben", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
         tr.addView(getTextView(0, "Werden", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
         tl.addView(tr, getTblLayoutParams());
@@ -81,10 +81,10 @@ public class prateritum extends AppCompatActivity {
         for (int i = 0; i < 7; i++) {
             TableRow tr = new TableRow(this);
             tr.setLayoutParams(getLayoutParams());
-            tr.addView(getTextView(i + 1, row[i], Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
-            tr.addView(getTextView(i + 2, sein[i], Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this, R.color.colorAccent)));
-            tr.addView(getTextView(i + 3, haben[i], Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this, R.color.colorAccent)));
-            tr.addView(getTextView(i + 4, werden[i], Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this, R.color.colorAccent)));
+            tr.addView(getTextView(i + 1, row[i], Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getApplicationContext(), R.color.colorPrimaryDark)));
+            tr.addView(getTextView(i + 2, sein[i], Color.BLACK, Typeface.BOLD, ContextCompat.getColor(this, R.color.colorAccent)));
+            tr.addView(getTextView(i + 3, haben[i], Color.BLACK, Typeface.BOLD, ContextCompat.getColor(this, R.color.colorAccent)));
+            tr.addView(getTextView(i + 4, werden[i], Color.BLACK, Typeface.BOLD, ContextCompat.getColor(this, R.color.colorAccent)));
             tl.addView(tr, getTblLayoutParams());
         }
     }

@@ -68,7 +68,7 @@ public class AdjDecl extends AppCompatActivity {
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
-
+        Toast.makeText(this,"Swipe for more",Toast.LENGTH_SHORT).show();
 
     }
 
@@ -201,7 +201,7 @@ public class AdjDecl extends AppCompatActivity {
             TableRow tr = new TableRow(getContext().getApplicationContext());
             tr.setLayoutParams(getLayoutParams());
             tr.addView(getTextView(0, "", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getContext(), R.color.colorPrimaryDark)));
-            tr.addView(getTextView(0, "MAS", Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this.getContext(), R.color.colorPrimaryDark)));
+            tr.addView(getTextView(0, "MAS", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getContext(), R.color.colorPrimaryDark)));
             tr.addView(getTextView(0, "FEM", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getContext(), R.color.colorPrimaryDark)));
             tr.addView(getTextView(0, "NEU", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getContext(), R.color.colorPrimaryDark)));
             tr.addView(getTextView(0, "PLR", Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this.getContext(), R.color.colorPrimaryDark)));
@@ -210,11 +210,11 @@ public class AdjDecl extends AppCompatActivity {
             for (int i = 0; i < 4; i++) {
                 TableRow tr1 = new TableRow(getContext());
                 tr1.setLayoutParams(getLayoutParams());
-                tr1.addView(getTextView(i + 1, row[i], Color.WHITE, Typeface.NORMAL,  ContextCompat.getColor(this.getContext(), R.color.colorPrimaryDark)));
-                tr1.addView(getTextView(i + 2, mas[i], Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(getContext(), R.color.colorAccent)));
-                tr1.addView(getTextView(i + 3, fem[i], Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(getContext(), R.color.colorAccent)));
-                tr1.addView(getTextView(i + 4, neu[i], Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(getContext(), R.color.colorAccent)));
-                tr1.addView(getTextView(i + 5, plr[i], Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(getContext(), R.color.colorAccent)));
+                tr1.addView(getTextView(i + 1, row[i], Color.WHITE, Typeface.BOLD,  ContextCompat.getColor(this.getContext(), R.color.colorPrimaryDark)));
+                tr1.addView(getTextView(i + 2, mas[i], Color.BLACK, Typeface.BOLD, ContextCompat.getColor(getContext(), R.color.colorAccent)));
+                tr1.addView(getTextView(i + 3, fem[i], Color.BLACK, Typeface.BOLD, ContextCompat.getColor(getContext(), R.color.colorAccent)));
+                tr1.addView(getTextView(i + 4, neu[i], Color.BLACK, Typeface.BOLD, ContextCompat.getColor(getContext(), R.color.colorAccent)));
+                tr1.addView(getTextView(i + 5, plr[i], Color.BLACK, Typeface.BOLD, ContextCompat.getColor(getContext(), R.color.colorAccent)));
                 tl.addView(tr1, getTblLayoutParams());
             }
 

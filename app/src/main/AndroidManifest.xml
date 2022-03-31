@@ -10,13 +10,26 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".VerbList"></activity>
-        <activity android:name=".TenseList" />
+        <activity
+            android:name=".ConjuctiveList"
+            android:label="Conjunctions" />
+        <activity
+            android:name=".VerbList"
+            android:label="Verben" />
+        <activity
+            android:name=".TenseList"
+            android:label="Tenses" />
         <activity android:name=".TextActivity" />
-        <activity android:name=".AdverbList" />
+        <activity
+            android:name=".AdverbList"
+            android:label="Adverbs" />
         <activity android:name=".Adverbs" />
-        <activity android:name=".ArticleTables" />
-        <activity android:name=".ArticleHelper" />
+        <activity
+            android:name=".ArticleTables"
+            android:label="Article Table" />
+        <activity
+            android:name=".ArticleHelper"
+            android:label="Article Helper" />
         <activity android:name=".prateritum" />
 
         <meta-data
